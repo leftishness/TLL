@@ -45,7 +45,7 @@
 ;(let ((d (tensor (tensor (tensor (tensor `()) (tensor -0.027))))))
 ;  (rank d)
 ;  (shape d))
-;e shape mismatch
+;e
 (let ((e (tensor (tensor (tensor (tensor 0.5) (tensor -0.027))))))
   (rank e)
   (shape e))
