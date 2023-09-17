@@ -30,9 +30,9 @@
       (else (ranked (tref t 0) (add1 a))))))
 
 ;a
-(let ((a 1.28))
-  (rank a)
-  (shape a))
+;(let ((a 1.28))
+;  (rank a)
+;  (shape a))
 
 ;b
 (let ((b (tensor (tensor (tensor 1.0 4.0)) (tensor (tensor 3.0 -9.8)))))
@@ -43,18 +43,18 @@
 ;  (rank c)
 ;  (shape c))
 ;d
-;(let ((d (tensor 1.28)))
+;(let ((d ))
 ;  (rank d)
 ;  (shape d))
 ;e
-;(let ((e (tensor 1.28)))
+;(let ((e ))
 ;  (rank e)
 ;  (shape e))
 ;f
-;(let ((f (tensor 1.28)))
+;(let ((f ))
 ;  (rank f)
 ;  (shape f))
 ;g
-;(let ((g (tensor 1.28)))
+;(let ((g ))
 ;  (rank g)
 ;  (shape g))
