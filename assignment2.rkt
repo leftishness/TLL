@@ -16,7 +16,7 @@
 (prod-1 (tensor 1.0 2.0 3.0))
 (prod-1 (tensor 2.0 3.0 6.0 2.0))
 
-; problem 5
+; problem 5 (unfinished)
 (define new-line-xs
   (tensor -2.0 -1.0 0.0 1.0 2.0))
  
