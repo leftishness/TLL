@@ -93,5 +93,5 @@
           (list
            (list 1.0 2.0 3.0)
            4.0))))
-  (car (cdr (car d)))
+  (car (cdr (car d))))
 ; problem 6
