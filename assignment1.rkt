@@ -7,7 +7,7 @@
     (lambda (w b)
       (+ (* w x) b))))
 
-;((line 3.2) -4 1)
+((line 3.2) -4 1)
 
 ; problem 2
 ; y = 1 - 2x
@@ -30,43 +30,45 @@
       (else (ranked (tref t 0) (add1 a))))))
 
 ;a
-;(let ((a 1.28))
-;  (rank a)
-;  (shape a))
+(let ((a 1.28))
+  (rank a)
+  (shape a))
 ;b
-;(let ((b (tensor (tensor (tensor 1.0 4.0)) (tensor (tensor 3.0 -9.8)))))
-;  (rank b)
-;  (shape b))
-;c
+(let ((b (tensor (tensor (tensor 1.0 4.0)) (tensor (tensor 3.0 -9.8)))))
+  (rank b)
+  (shape b))
+;c shape mismatch
 ;(let ((c (tensor (tensor 1.0 2.0 3.0) (tensor 4.0 5.0) (tensor 6.0))))
 ;  (rank c)
 ;  (shape c))
-;d
-;(let ((d (tensor (tensor (tensor (tensor (list)) (tensor -0.027))))))
+;d cannot construct tensor out of (list)
+;(let ((d (tensor (tensor (tensor (tensor `()) (tensor -0.027))))))
 ;  (rank d)
 ;  (shape d))
-;e
+;e shape mismatch
 ;(let ((e (tensor (tensor (tensor (tensor 0.5)) (tensor -0.027)))))
 ;  (rank e)
 ;  (shape e))
-;f
+;f shape mismatch
 ;(let ((f (tensor (tensor (tensor 0.5 -0.027)) (tensor 23.0 -1.62))))
 ;  (rank f)
 ;  (shape f))
 ;g
-;(let ((g (tensor (tensor (tensor (+ (* 0.5 4.2) 2) -0.027)))))
-;  (rank g)
-;  (shape g))
+(let ((g (tensor (tensor (tensor (+ (* 0.5 4.2) 2) -0.027)))))
+  (rank g)
+  (shape g))
 
 ; problem 4
 ;a
-;(let ((a (tensor (tensor 0.09 1.03 0.93 0.51 0.45))))
-;  (tref (tref a 0) 1))
+(let ((a (tensor (tensor 0.09 1.03 0.93 0.51 0.45))))
+  (tref (tref a 0) 1))
 ;b
-;(let ((b (tensor (tensor (tensor (tensor 7.2 3.2))))))
-;  (tref (tref (tref (tref b 0) 0) 0) 0)
-;  (tref (tref (tref (tref b 0) 0) 0) 1))
+(let ((b (tensor (tensor (tensor (tensor 7.2 3.2))))))
+  (tref (tref (tref b 0) 0) 0))
 ;c
-;(let ((c (tensor (tensor (tensor 1.0 3.5 4.8) (tensor 6.2 4.7 3.5) (tensor 6.0 8.0 2.0))
-;                 (tensor (tensor 4.0 2.5 3.0) (tensor 1.2 1.7 1.5) (tensor (7.6 0.1 0.0))))))
-;  (tref (tref (tref 1) 1) 0))
+(let ((c (tensor (tensor (tensor 1.0 3.5 4.8) (tensor 6.2 4.7 3.5) (tensor 6.0 8.0 2.0))
+                 (tensor (tensor 4.0 2.5 3.0) (tensor 1.2 1.7 1.5) (tensor 7.6 0.1 0.0)))))
+  (tref (tref (tref c 1) 1) 1))
+
+;problem5
+
