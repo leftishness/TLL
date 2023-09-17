@@ -9,7 +9,7 @@
 (define prodded
   (lambda (t i a)
     (cond
-      ((zero? i) a)
+      ((zero? i) (* (tref t i) a))
       (else
        (prodded t (sub1 i) (* (tref t i) a))))))
 
