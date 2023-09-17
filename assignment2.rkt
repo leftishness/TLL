@@ -23,7 +23,7 @@
 (define new-line-ys
   (tensor 4.97 3.13 0.99 -1.0 -3.11))
 
-(define f
+(define line
   (lambda (m x b)
       (+ (* m x) b)))
 
