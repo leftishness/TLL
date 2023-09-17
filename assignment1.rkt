@@ -71,4 +71,27 @@
   (tref (tref (tref c 1) 1) 1))
 
 ;problem5
-
+;a
+(let ((a (list 0.09 1.03 0.93 0.51 0.45)))
+  (car (cdr a)))
+;b
+(let ((b (list (list (list (list 7.2 3.2))))))
+  (car (car (car b))))
+;c
+(let ((c (list
+  (list
+    (list 1.0 3.5 4.8)
+    (list 6.2 4.7 3.5)
+    (list 6.0 8.0 2.0))
+  (list
+    (list 4.0 2.5 3.0)
+    (list 1.2 1.7 1.5)
+    (list 7.6 0.1 0.0)))))
+  (car (cdr (car (cdr (car (cdr c)))))))
+;d
+(let ((d (list
+          (list
+           (list 1.0 2.0 3.0)
+           4.0))))
+  (car (cdr (car d)))
+; problem 6
