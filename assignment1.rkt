@@ -94,4 +94,18 @@
            (list 1.0 2.0 3.0)
            4.0))))
   (car (cdr (car d))))
-; problem 6
+; problem 6 and 7
+(define mult
+  (lambda (x y)
+    (cond
+      ((zero? y) 0)
+      (else (+ (mult x (sub1 y)) x)))))
+
+(define mult-sap
+  (lambda (x y z)
+    (cond
+      ((eq? y z) 0)
+      (else (+ (mult-sap x y (add1 z)) x)))))
+
+(mult 3 4)
+(mult-sap 3 4 0)
