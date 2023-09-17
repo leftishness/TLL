@@ -1,6 +1,7 @@
 #lang racket
 (require malt)
 
+; problem 2
 (define prod-1 (lambda (t) (prodded t (sub1 (tlen t)) 0.0)))
 
 (define prodded
