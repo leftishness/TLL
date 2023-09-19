@@ -29,6 +29,49 @@
       (else (cons (car lat)
                   (remove-member a (cdr lat)))))))     
 
-(let ([a 'and]
-     [lat '(bacon lettuce and tomato)])
-  (remove-member a lat))
+(define firsts
+  (lambda (l)
+    (cond
+      ((null? l) (quote()))
+      (else (cons (car (car l))
+                  (firsts (cdr l)))))))
+
+(define insertR
+  (lambda (new old lat)
+    (cond
+      ((null? lat) (quote ()))
+      (else (cond
+              ((eq? (car lat) old)
+               (cons old
+                     (cons new (cdr lat))))
+              (else (cons (car lat)
+                          (insertR new old
+                                   (cdr lat)))))))))
+
+(define insertL
+  (lambda (new old lat)
+    (cond
+      ((null? lat) (quote ()))
+      (else (cond
+              ((eq? (car lat) old)
+               (cons new
+                     (cons old (cdr lat))))
+              (else (cons (car lat)
+                          (insertL new old
+                                   (cdr lat)))))))))
+
+(define subst
+  (lambda (new old lat)
+    (cond
+      ((null? lat) (quote ()))
+      (else (cond
+              ((eq? (car lat) old)
+               (cons new (cdr lat)))
+              (else (cons (car lat)
+                          (subst new old
+                                   (cdr lat)))))))))
+
+(let ([new 'topping]
+      [old 'fudge]
+      [lat (list 'ice 'cream 'with 'fudge 'for 'dessert)])
+  (display (subst new old lat)))
