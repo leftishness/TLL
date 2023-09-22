@@ -63,3 +63,5 @@
           (revise f revs theta))))
 
 (displayln (gradient-descent ((l2-loss line) new-line-xs new-line-ys) theta))
+
+; problem 7
