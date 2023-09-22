@@ -29,4 +29,37 @@
                           (+ (tref new-line-ys 3) (tref new-line-ys 4))))) (tlen new-line-ys))))
 
 ; problem 6
+(define revs 1000)
+(define theta (list 0.0 0.0))
 
+(define line
+  (lambda (x)
+    (lambda (theta)
+      (+ (* (ref theta 0) x) (ref theta 1)))))
+
+(define l2-loss
+ (lambda (target)
+   (lambda (xs ys)
+     (lambda (theta)
+       (let ((pred-ys ((target xs) theta)))
+         (sum
+          (sqr
+           (- ys pred-ys))))))))
+
+(define revise
+  (lambda (f revs theta)
+    (cond
+      ((zero? revs) theta)
+      (else
+       (revise f (sub1 revs) (f theta))))))
+
+(define gradient-descent
+  (lambda (obj theta)
+    (let ((f (lambda (big-theta)
+                (map (lambda (p g)
+                       (- p (* alpha g)))
+                     big-theta
+                     (gradient-of obj big-theta)))))
+          (revise f revs theta))))
+
+(displayln (gradient-descent ((l2-loss line) new-line-xs new-line-ys) theta))
