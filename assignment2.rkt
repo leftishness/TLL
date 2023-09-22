@@ -16,23 +16,17 @@
 (prod-1 (tensor 1.0 2.0 3.0))
 (prod-1 (tensor 2.0 3.0 6.0 2.0))
 
-; problem 5 (unfinished)
+; problem 5
 (define new-line-xs
   (tensor -2.0 -1.0 0.0 1.0 2.0))
- 
 (define new-line-ys
   (tensor 4.97 3.13 0.99 -1.0 -3.11))
+(define alpha 0.01)
+;; since theta0 and theta1 are both 0, all predicted ys are 0
+(- 0 (* alpha (/ (+ (tref new-line-ys 0)
+                    (+ (tref new-line-ys 1)
+                       (+ (tref new-line-ys 2)
+                          (+ (tref new-line-ys 3) (tref new-line-ys 4))))) (tlen new-line-ys))))
 
-(define line
-  (lambda (m x b)
-      (+ (* m x) b)))
+; problem 6
 
-(define revise
-  (lambda (f revs theta)
-    (cond
-      ((zero? revs) theta)
-      (else
-       (revise f (sub1 revs) (f theta))))))
-
-(define theta
-  (list 0.0 0.0))
