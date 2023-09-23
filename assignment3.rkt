@@ -61,3 +61,24 @@
  (list 0.0004 650)))
 
 (displayln (map (lambda (sublist) (trained-loss (car sublist) (car (cdr sublist)))) lols))
+
+; problem 2
+(define another-xs
+  (tensor 0.5 0.78 1.68 2.05 2.87 3.2 3.9 4.6 5.4))
+ 
+(define another-ys
+  (tensor 3.2 4.7 6.3 6.2 7.02 7.4 7.9 7.8 8.5))
+
+(define quad
+  (lambda (x)
+    (lambda (θ)
+      (+ (* (ref θ 0) (sqr x))
+         (+ (* (ref θ 1) x)
+            (ref θ 2))))))
+ 
+(define ln
+  (lambda (x)
+    (lambda (θ)
+      (+ (* (ref θ 0) (log x))
+         (ref θ 1)))))
+
