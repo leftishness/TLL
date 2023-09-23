@@ -71,3 +71,4 @@
     (revise (lambda (lst) (cons m lst)) n l)))
 
 (displayln (n-prepend 3 5 (list 8 9 10)))
+(displayln (n-prepend 10 0 (list)))
