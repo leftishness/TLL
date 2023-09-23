@@ -72,3 +72,13 @@
 
 (displayln (n-prepend 3 5 (list 8 9 10)))
 (displayln (n-prepend 10 0 (list)))
+
+;problem 8
+(define map-nr
+  (lambda (f lst)
+    (cond
+      ((null? lst) lst)
+      (cons (f (car lst)))
+      (map-nr f (cdr lst)))))
+
+(displayln (map-nr sub1 (list 1 2 3 4)))
