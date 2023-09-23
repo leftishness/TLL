@@ -89,3 +89,5 @@
 ;; This is the Central Limit Theorem. As the batch size approaches the population size in the limit, the sample increasingly reflects the underlying distribution. 
 ;; When the batch size equals the population from which you are sampling, there is no information loss due to sampling and, so, the result is no longer approximate but exact. 
 ;; Therefore, this result is identical to the result without sampling.
+
+; problem 4
