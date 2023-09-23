@@ -60,7 +60,7 @@
  (list 0.009 6000)
  (list 0.0004 650)))
 
-(displayln (map (lambda (sublist) (trained-loss (car sublist) (car (cdr sublist)))) lols))
+(displayln (map (lambda (sublist) (trained-loss-line (car sublist) (car (cdr sublist)))) lols))
 
 ; problem 2
 (define another-xs
