@@ -82,3 +82,5 @@
       (+ (* (ref θ 0) (log x))
          (ref θ 1)))))
 
+(displayln (((l2-loss quad) another-xs another-ys) (gradient-descent ((l2-loss quad) another-xs another-ys) (list 0.0 0.0 0.0) 0.0001 100000)))
+(displayln (((l2-loss ln) another-xs another-ys) (gradient-descent ((l2-loss ln) another-xs another-ys) theta 0.0001 100000)))
