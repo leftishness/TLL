@@ -65,3 +65,9 @@
 (displayln (gradient-descent ((l2-loss line) new-line-xs new-line-ys) theta))
 
 ; problem 7
+(define n-prepend
+  (lambda (m n l)
+    (eq? 0 n)
+    (revise (lambda (lst) (cons m lst)) n l)))
+
+(displayln (n-prepend 3 5 (list 8 9 10)))
