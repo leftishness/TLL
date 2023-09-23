@@ -90,14 +90,14 @@
 ;; Therefore, this result is identical to the result without sampling.
 
 ; problem 4 - without `range` I couldn't get this to work! use without MALT!
-(define (det-samples n s m)
-  (cond 
-    [(>= (* m s) n) (list)]
-    [(>= (* s (+ 1 m)) n) (list)]
-    [else (range (* m s) (* s (+ 1 m)))]))
+;(define (det-samples n s m)
+;  (cond 
+;    [(>= (* m s) n) (list)]
+;    [(>= (* s (+ 1 m)) n) (list)]
+;    [else (range (* m s) (* s (+ 1 m)))]))
 
-(det-samples 10 4 0)
-(det-samples 10 4 1)
-(det-samples 10 4 2)
-(det-samples 10 4 3)
-(det-samples 10 4 4)
+;(det-samples 10 4 0)
+;(det-samples 10 4 1)
+;(det-samples 10 4 2)
+;(det-samples 10 4 3)
+;(det-samples 10 4 4)
