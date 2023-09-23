@@ -46,3 +46,18 @@
     (((l2-loss line) new-line-xs new-line-ys) (gradient-descent ((l2-loss line) new-line-xs new-line-ys) theta alpha^ revs^))))
 
 (displayln (trained-loss 0.01 4700))
+
+; problem 1b
+(define lols (list
+ (list 0.0005 500)
+ (list 0.001 1000)
+ (list 0.02 2000)
+ (list 0.0003 100)
+ (list 0.008 3500)
+ (list 0.0006 700)
+ (list 6e-6 10)
+ (list 3e-6 75)
+ (list 0.009 6000)
+ (list 0.0004 650)))
+
+(displayln (map (lambda (sublist) (trained-loss (car sublist) (car (cdr sublist)))) lols))
