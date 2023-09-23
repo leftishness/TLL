@@ -86,7 +86,6 @@
 (displayln (((l2-loss ln) another-xs another-ys) (gradient-descent ((l2-loss ln) another-xs another-ys) theta 0.0001 100000)))
 
 ; problem 3
-;; This is the Central Limit Theorem. As the batch size approaches the population size in the limit, the sample increasingly reflects the underlying distribution. 
 ;; When the batch size equals the population from which you are sampling, there is no information loss due to sampling and, so, the result is no longer approximate but exact. 
 ;; Therefore, this result is identical to the result without sampling.
 
