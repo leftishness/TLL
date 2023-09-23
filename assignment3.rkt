@@ -90,4 +90,15 @@
 ;; When the batch size equals the population from which you are sampling, there is no information loss due to sampling and, so, the result is no longer approximate but exact. 
 ;; Therefore, this result is identical to the result without sampling.
 
-; problem 4
+; problem 4 - without `range` this problem is very hard!
+(define (det-samples n s m)
+  (cond 
+    [(>= (* m s) n) (list)]
+    [(>= (* s (add1 m)) n) (list)]
+    [else (range (* m s) (* s (+ 1 m)))]))
+
+(det-samples 10 4 0)
+(det-samples 10 4 1)
+(det-samples 10 4 2)
+(det-samples 10 4 3)
+(det-samples 10 4 4)
