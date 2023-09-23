@@ -76,9 +76,9 @@
 ;problem 8
 (define map-nr
   (lambda (f lst)
-    (cond
-      ((null? lst) lst)
-      (cons (f (car lst)))
-      (map-nr f (cdr lst)))))
+      (cond
+        ((null? lst))
+        (else (cons (f (car lst))
+                    (map-nr f (cdr lst)))))))
 
 (displayln (map-nr sub1 (list 1 2 3 4)))
