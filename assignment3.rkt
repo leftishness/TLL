@@ -90,7 +90,7 @@
 ;; When the batch size equals the population from which you are sampling, there is no information loss due to sampling and, so, the result is no longer approximate but exact. 
 ;; Therefore, this result is identical to the result without sampling.
 
-; problem 4 - without `range` this problem is very hard! use without MALT!
+; problem 4 - without `range` I couldn't get this to work! use without MALT!
 (define (det-samples n s m)
   (cond 
     [(>= (* m s) n) (list)]
