@@ -94,7 +94,7 @@
 (define (det-samples n s m)
   (cond 
     [(>= (* m s) n) (list)]
-    [(>= (* s (add1 m)) n) (list)]
+    [(>= (* s (+ 1 m)) n) (list)]
     [else (range (* m s) (* s (+ 1 m)))]))
 
 (det-samples 10 4 0)
