@@ -41,11 +41,11 @@
           (revise f revs theta))))
 
 
-(define trained-loss
+(define trained-loss-line
   (lambda (alpha^ revs^)
     (((l2-loss line) new-line-xs new-line-ys) (gradient-descent ((l2-loss line) new-line-xs new-line-ys) theta alpha^ revs^))))
 
-(displayln (trained-loss 0.01 4700))
+(displayln (trained-loss-line 0.01 4700))
 
 ; problem 1b
 (define lols (list
