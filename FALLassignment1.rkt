@@ -51,4 +51,19 @@
   (cond
     [(null? lst1) (list)]
     [(null? lst2) (list)]
-    [
+    [(cons (cons (car lst1) (car lst2)) (zip (cdr lst1) (cdr lst2)))]))
+
+;(zip '(1 2 3) '(a b c))
+;(zip '(1 2 3 4 5 6) '(a b c))
+;(zip '(1 2 3) '(a b c d e f))
+
+; problem 7
+(define (list-index-ofv v lst [a 0])
+  (cond
+    [(eqv? v (car lst)) a]
+    [else (list-index-ofv v (cdr lst) (+ a 1))]))
+
+
+;(list-index-ofv 'x '(x y z x x))
+;(list-index-ofv 'x '(y z x x))
+
