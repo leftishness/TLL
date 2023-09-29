@@ -66,7 +66,7 @@
 ;(list-index-ofv 'x '(x y z x x))
 ;(list-index-ofv 'x '(y z x x))
 
-; problem 8 - got stack order wrong
+; problem 8
 (define (append ls1 ls2)
   (cond
     [(null? ls1) ls2]
@@ -75,7 +75,7 @@
 ;(append '(42 120) '(1 2 3))
 ;(append '(a b c) '(cat dog))
 
-; problem 9 - needed an accumulator
+; problem 9
 (define (reverse lst [reversed (list)])
   (cond
     [(null? lst) reversed]
@@ -85,4 +85,10 @@
 
 ; problem 10
 (define (repeat lst n)
-  
+  (cond
+    [(eq? 0 n) (list)]
+    [(append lst (repeat lst (- n 1)))]))
+
+;(repeat '(4 8 11) 4)
+
+; problem 11
