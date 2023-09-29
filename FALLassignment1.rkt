@@ -83,7 +83,7 @@
 
 ;(reverse '(a 3 x))
 
-; problem 10
+; problem 10 - didn't think of append
 (define (repeat lst n)
   (cond
     [(eq? 0 n) (list)]
@@ -92,3 +92,22 @@
 ;(repeat '(4 8 11) 4)
 
 ; problem 11
+(define (same-lists* lst1 lst2)
+  (cond
+    [(null? lst1) (cond
+                    [(null? lst2) #t]
+                    [else #f])]
+    [(null? lst2) #f]
+    [(pair? (car lst1)) (cond
+                          [(pair? (car lst2)) (same-lists* (car lst1) (car lst2))]
+                          [else #f])]
+    [(eq? (car lst1) (car lst2)) (same-lists* (cdr lst1) (cdr lst2))]
+    [else #f]))
+
+;(same-lists* '() '())
+;(same-lists* '(1 2 3 4 5) '(1 2 3 4 5))
+;(same-lists* '(1 2 3 4) '(1 2 3 4 5))
+;(same-lists* '(a (b c) d) '(a (b) c d))
+;(same-lists* '((a) b (c d) d) '((a) b (c d) d))
+
+; problem 12
