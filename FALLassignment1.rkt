@@ -142,6 +142,8 @@
 (define (append-map p lst [appended (list)])
   (cond
     [(null? lst) appended]
-    [(append (p (car lst) appended))]))
+    [(append (p (car lst)) appended) (append-map p (cdr lst))]))
+
+(append-map countdown (countdown 5))
 
 (append-map countdown (countdown 5))
