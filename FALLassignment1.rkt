@@ -142,8 +142,15 @@
 (define (append-map p lst [appended (list)])
   (cond
     [(null? lst) appended]
-    [(append (p (car lst)) appended) (append-map p (cdr lst))]))
+    [else (append-map p (cdr lst) (append appended (p (car lst))))]))
 
-(append-map countdown (countdown 5))
+;(append-map countdown (countdown 5))
 
-(append-map countdown (countdown 5))
+; problem 16
+(define (set-difference lst1 lst2 [lst (list)])
+  (cond
+    [(null? lst1) lst]
+    [(member (car lst1) lst2) (set-difference (cdr lst1) lst2)]
+    [else (cons (car lst1) (set-difference (cdr lst1) lst2))]))
+
+;(set-difference '(1 2 3 4 5) '(2 6 4 8))
