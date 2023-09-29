@@ -111,3 +111,37 @@
 ;(same-lists* '((a) b (c d) d) '((a) b (c d) d))
 
 ; problem 12
+;(equal? '((w x) y (z)) '((w . (x . ())) . (y (z . ()) . ())))
+
+; problem 13
+(define (binary->natural lst [a 0])
+  (cond
+    [(null? lst) 0]
+    [(+ (* (expt 2 a) (car lst)) (binary->natural (cdr lst) (+ 1 a)))]))
+
+;(binary->natural '())
+;(binary->natural '(0 0 1))
+;(binary->natural '(0 0 1 1))
+;(binary->natural '(1 1 1 1))
+;(binary->natural '(1 0 1 0 1))
+;(binary->natural '(1 1 1 1 1 1 1 1 1 1 1 1 1))
+
+; problem 14
+(define (div a b [c 0])
+  (cond
+    [(= b 0) (displayln "Cannot divide by zero")]
+    [(< a 0) (displayln "Does not divide evenly")]
+    [(cond
+       [(= a 0) c]
+       [(div (- a b) b (+ 1 c))])]))
+
+;(div 25 5)
+;(div 36 6)
+
+; problem 15
+(define (append-map p lst [appended (list)])
+  (cond
+    [(null? lst) appended]
+    [(append (p (car lst) appended))]))
+
+(append-map countdown (countdown 5))
