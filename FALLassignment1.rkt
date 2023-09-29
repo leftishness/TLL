@@ -63,7 +63,26 @@
     [(eqv? v (car lst)) a]
     [else (list-index-ofv v (cdr lst) (+ a 1))]))
 
-
 ;(list-index-ofv 'x '(x y z x x))
 ;(list-index-ofv 'x '(y z x x))
 
+; problem 8 - got stack order wrong
+(define (append ls1 ls2)
+  (cond
+    [(null? ls1) ls2]
+    [else (cons (car ls1) (append (cdr ls1) ls2))]))
+  
+;(append '(42 120) '(1 2 3))
+;(append '(a b c) '(cat dog))
+
+; problem 9 - needed an accumulator
+(define (reverse lst [reversed (list)])
+  (cond
+    [(null? lst) reversed]
+    [else (reverse (cdr lst) (cons (car lst) reversed))]))
+
+;(reverse '(a 3 x))
+
+; problem 10
+(define (repeat lst n)
+  
