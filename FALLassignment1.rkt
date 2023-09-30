@@ -161,5 +161,5 @@
     [(null? lst) (cons (list) appended)]
     [else (append (map (lambda (x) (cons (car lst) x)) (powerset (cdr lst))) (powerset (cdr lst)))]))
     
-(powerset '(3 2 1))
-(powerset '())
+;(powerset '(3 2 1))
+;(powerset '())
