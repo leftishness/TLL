@@ -83,7 +83,7 @@
 
 ;(reverse '(a 3 x))
 
-; problem 10 - didn't think of append
+; problem 10
 (define (repeat lst n)
   (cond
     [(eq? 0 n) (list)]
