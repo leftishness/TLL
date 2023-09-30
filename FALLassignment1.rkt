@@ -154,3 +154,12 @@
     [else (cons (car lst1) (set-difference (cdr lst1) lst2))]))
 
 ;(set-difference '(1 2 3 4 5) '(2 6 4 8))
+
+; problem 18
+(define (powerset lst [appended (list)])
+  (cond
+    [(null? lst) (cons (list) appended)]
+    [else (append (map (lambda (x) (cons (car lst) x)) (powerset (cdr lst))) (powerset (cdr lst)))]))
+    
+(powerset '(3 2 1))
+(powerset '())
