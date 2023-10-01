@@ -163,3 +163,39 @@
     
 ;(powerset '(3 2 1))
 ;(powerset '())
+
+; problem 19
+(define (cartesian-product lists)
+  (let ([lst1 (car lists)]
+        [lst2 (cadr lists)])
+    (cond
+      [(null? lst1) (list)]
+      [else (append (let loop ([n (car lst1)]
+                               [2lst lst2])
+                      (cond
+                        [(null? 2lst) (list)]
+                        [else (cons (list n (car 2lst))
+                                    (loop n (cdr 2lst)))]))
+                    (cartesian-product (list (cdr lst1) lst2)))])))
+                   
+;(cartesian-product '((5 4) (3 2 1)))
+
+; problem 20
+(define (C n)
+  (letrec ([is-even? (lambda (n)
+                       (cond
+                         [(= n 1) n]
+                         [(even? n) (is-even? (/ n 2))]
+                         [else (is-odd? (+ (* n 3) 1))]))]
+           [is-odd? (lambda (n)
+                      (cond
+                        [(= n 1) n]
+                        [(even? n) (is-even? (/ n 2))]
+                        [else (is-odd? (+ (* n 3) 1))]))])
+    (cond
+      [(even? n) (is-even? n)]
+      [(odd? n) (is-odd? n)])))
+
+;(C 12)
+;(C 120)
+;(C 9999)
