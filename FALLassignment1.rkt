@@ -97,7 +97,7 @@
 (define repeat
   (lambda (lst n)
   (cond
-    [(eq? 0 n) (list)]
+    [(eqv? 0 n) (list)]
     [else (append lst (repeat lst (- n 1)))])))
 
 ;(repeat '(4 8 11) 4)
@@ -113,7 +113,7 @@
     [(pair? (car lst1)) (cond
                           [(pair? (car lst2)) (and (same-lists* (car lst1) (car lst2)) (same-lists* (cdr lst1) (cdr lst2)))]
                           [else #f])]
-    [(eq? (car lst1) (car lst2)) (same-lists* (cdr lst1) (cdr lst2))]
+    [(eqv? (car lst1) (car lst2)) (same-lists* (cdr lst1) (cdr lst2))]
     [else #f])))
 
 ;(same-lists* '() '())
@@ -128,11 +128,10 @@
 ; problem 13
 (define binary->natural
   (lambda (lst)
-    (letrec ((helper (lambda (reversed-lst)
-                       (if (null? reversed-lst)
-                           0
-                           (+ (car reversed-lst) (* 2 (helper (cdr reversed-lst))))))))
-      (helper (reverse lst)))))
+    (cond
+      [(null? lst) 0]
+      [else (+ (car lst) (* 2 (binary->natural (cdr lst))))])))
+
 
 ;(binary->natural '())
 ;(binary->natural '(0 0 1))
@@ -176,7 +175,7 @@
 ; problem 17
 ; Remove multiple checks for m=0
 ; Remove multiple helper functions taking (n m) as inputs
-; Implement a single helpfer function that takes (n m) as input
+; Implement a single helper function that takes (n m) as input
 ; Implement branch conditions that check for base cases, including m=0 and i=0
 ; Continue with hyperoperations using only add1
 ; Decrement m after each set of hyperoperations until zero
