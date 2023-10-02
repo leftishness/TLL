@@ -209,19 +209,12 @@
 ; problem 20
 (define C
   (lambda (n)
-    (letrec ([is-even? (lambda (n)
-                         (cond
-                           [(= n 1) n]
-                           [(even? n) (is-even? (/ n 2))]
-                           [else (is-odd? (+ (* n 3) 1))]))]
-             [is-odd? (lambda (n)
+    (letrec ([collatz (lambda (n)
                         (cond
                           [(= n 1) n]
-                          [(even? n) (is-even? (/ n 2))]
-                          [else (is-odd? (+ (* n 3) 1))]))])
-      (cond
-        [(even? n) (is-even? n)]
-        [(odd? n) (is-odd? n)]))))
+                          [(even? n) (collatz (/ n 2))]
+                          [else (collatz (+ (* n 3) 1))]))])
+      (collatz n))))
 
 ;(C 12)
 ;(C 120)
