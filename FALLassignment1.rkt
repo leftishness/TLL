@@ -173,6 +173,13 @@
 
 ;(set-difference '(1 2 3 4 5) '(2 6 4 8))
 
+; problem 17
+; Remove multiple checks for m=0
+; Remove multiple helper functions taking (n m) as inputs
+; Implement a single helpfer function that takes (n m) as input
+; Implement branch conditions that check for base cases, including m=0 and i=0
+; Continue with hyperoperations using only add1
+
 ; problem 18
 (define (powerset lst)
   (cond
