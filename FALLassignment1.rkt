@@ -179,6 +179,7 @@
 ; Implement a single helpfer function that takes (n m) as input
 ; Implement branch conditions that check for base cases, including m=0 and i=0
 ; Continue with hyperoperations using only add1
+; Decrement m after each set of hyperoperations until zero
 
 ; problem 18
 (define (powerset lst)
