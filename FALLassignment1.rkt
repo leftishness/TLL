@@ -111,7 +111,7 @@
                     [else #f])]
     [(null? lst2) #f]
     [(pair? (car lst1)) (cond
-                          [(pair? (car lst2)) (same-lists* (car lst1) (car lst2))]
+                          [(pair? (car lst2)) (and (same-lists* (car lst1) (car lst2)) (same-lists* (cdr lst1) (cdr lst2)))]
                           [else #f])]
     [(eq? (car lst1) (car lst2)) (same-lists* (cdr lst1) (cdr lst2))]
     [else #f])))
